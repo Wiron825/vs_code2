@@ -1,0 +1,37 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'main/css/main_page.css' %}">
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>Укажите улицу или переулок который хотите найти</p>
+    </div>
+    <div class="map1">
+        <form method="POST" action="{% url 'home' %}" id="streets">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="street" placeholder="Улица">
+                <button type="submit">Найти</button>
+                
+                {% if streets != '' and mean != ''%}
+                    <form method="POST" action="{% url 'home' %}" id="user_ball">
+                        {% csrf_token %}
+                        <h3>Средний балл {{ streets }}: {{ mean }}</h3>
+                        <div class="balls">
+                            <label><input type="checkbox" name="number_ball" value="1">1балл</label>
+                            <label><input type="checkbox" name="number_ball" value="2">2балл</label>
+                            <label><input type="checkbox" name="number_ball" value="3">3балл</label>
+                            <label><input type="checkbox" name="number_ball" value="4">4балл</label>
+                            <label><input type="checkbox" name="number_ball" value="5">5балл</label>
+                            <button type="submit">Отправить</button>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'new_login/css/new_login.css' %}">
+    <title>Регестрация</title>
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/logo.jpg' %}" alt="логотип">
+        <span class="logo">itStart</span>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li><i class="fas fa-home"></i>Главная</li></a>
+            <a href="{% url 'about' %}"><li><i class="fas fa-solid fa-address-book"></i>Про меня</li></a>
+            <a href="{% url 'news_home' %}"><li><i class="fas fa-paper-plane"></i>Новости</li></a>
+            <a href="{% url 'new_login' %}"><li><i class="fas fa-address-card"></i>Регестрация</li></a>
+        </ul>
+    </aside>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="POST" action="{% url 'new_login' %}" class="new_class" id="new">
+                {% csrf_token %}
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" name="username">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit">Sign Up</button>
+                {% if result != ''%}
+                    <script>
+                        alert("{{ result }}")
+                    </script>
+                {% endif %}
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form method="POST" action="{% url 'new_login' %}" class="old_class" id="old">
+                {% csrf_token %}
+                <h1>Sing In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" name="old_email" placeholder="Email">
+                <input type="password" name="old_password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your peraonal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your peraonal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'new_login/js/script.js' %}"></script>
+</body>
+</html>

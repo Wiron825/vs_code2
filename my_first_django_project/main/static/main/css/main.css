@@ -1,0 +1,155 @@
+body {
+    background-color: #c2c2c2;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+aside {
+    float: left;
+    background: linear-gradient(to right, #5c6bc0, #512da8);
+    width: 21.5%;
+    padding: 2.5%;
+    height: 100vh;
+    color: white;
+    border-right: 5px solid #2c2c2c;
+}
+
+aside img {
+    width: 70px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 35px;
+    margin-left: 5px;
+    font-weight: bold;
+    position: relative;
+    top: 5px;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+aside ul {list-style: none;}
+
+aside ul li {
+    color: beige;
+    display: block;
+    margin-top: 10px;
+    margin-left: -10px;
+    transition: all .5s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: red;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+aside li {
+    width:50%;
+    margin-top: 50%;
+}
+
+aside h4{
+    margin-top: 400px;
+    margin-left: 5px;
+    font-size: 40px;
+}
+
+aside h5{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+main .features {
+    float: left;
+    color: #fff;
+    text-align: center;
+    margin-top: 70px;
+    width: 75%;
+}
+
+main .features h1 {
+    font-size: 45px;
+    margin-top: 0px;
+}
+
+main .features p {
+    font-size: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+main .input {
+    max-width: 400px;
+    float: center;
+    text-align: center;
+    border: 4px solid darkgray;
+    border-radius: 30px;
+    padding: 5px 15px;
+    margin-top: 45px;
+}
+
+
+main .map1{
+    margin-left: 50%;
+    color: #fff;
+    width: 20%;
+    height: 20%;
+}
+
+main .map1 input {
+    width: 20%;
+    height: 20%;
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    margin-left: -5%;
+    margin-top: 10px;
+}
+
+main .map1 button{
+    text-align: center;
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-left: 20%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+main .map1 h3{
+    font-size: 25px;
+    min-width: 500px;
+    margin-left: -10%;    
+    margin-top: 15px;
+    color: #fff;
+    width: 30%;
+    height: 30%;
+}
+
+main .map1 .balls {
+    margin: 5px 15px 30px 10px;
+    margin-top: 5px;
+    color: white;
+}
+
+.features{
+    background-color: #c2c2c2;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
