@@ -66,6 +66,7 @@ def data_in_data_old():
             row = i.split(',')
             if len(row) == 3:
                 new_person_old_user(id_user=int(row[2]), email_user=row[0], password_user=row[1])
+        
 
 # def look_user_in_bd(email_user='', password_user=''):
 #     with engine.begin()as conn:

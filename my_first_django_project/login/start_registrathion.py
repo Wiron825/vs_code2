@@ -40,18 +40,18 @@ def registrathion(*args):
                 # with open('data.csv', 'a', encoding='utf-8') as fl:
                 #     fl.write(f'\n{username},{email},{password},{id}')
 
-                # with open('data.json', 'r', encoding='utf-8') as f:
-                #     loaded = json.load(f)
-                #     print(loaded, type(loaded))
-                #     loaded['name'] = '   ' + username
-                #     print(loaded)
-
-                # with open('data.json', 'w', encoding='utf-8') as f:
-                #     json.dump(loaded, f, ensure_ascii=False)
                 look_bd_new_user()
                 print(look_id_new_user())
                 look_bd_new_user()
                 new_person_new_user(id_user=0, name_user=username, email_user=email, password_user=password)
+                with open('data.json', 'r', encoding='utf-8') as f:
+                    loaded = json.load(f)
+                    print(loaded, type(loaded))
+                    loaded['name'] = '   ' + username
+                    print(loaded)
+                
+                with open('data.json', 'w', encoding='utf-8') as f:
+                    json.dump(loaded, f, ensure_ascii=False)
 
                 total = {'result': 'Регистрация прошла успешно'}
         else:
@@ -94,6 +94,19 @@ def registrathion(*args):
         if look_user_in_bd(email_user=email, password_user=password) and email != '' and password != '':
             new_person_old_user(email_user=email, password_user=password)
             total = {'result': 'Вы успешно зашли на аккаунт'}
+
+            with open('data.json', 'r', encoding='utf-8') as f:
+                loaded = json.load(f)
+                if name_in_bd(email_user=email, password_user=password):
+                    username = name_in_bd(email_user=email, password_user=password)
+                else:
+                    username = loaded['name']
+                print(loaded, type(loaded))
+                loaded['name'] = '   ' + username
+                print(loaded)
+            
+            with open('data.json', 'w', encoding='utf-8') as f:
+                json.dump(loaded, f, ensure_ascii=False)
         else:
             total = {'result': 'Аккаунт не найден'}
         print(look_bd_old_user())

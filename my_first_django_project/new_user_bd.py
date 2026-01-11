@@ -88,7 +88,16 @@ def look_user_in_bd(email_user='', password_user=''):
             return True
         else:
             return False
-        
+
+def name_in_bd(email_user='', password_user=''):
+    with engine.begin()as conn:
+        user = conn.execute(text('''SELECT name, email, password
+                           FROM new_user'''))
+        for i in user:
+            if (email_user, password_user) == i[1:]:
+                print(i[0])
+                return i[0]
+        return False
 # def new_person(id_user=0, balanse_user=0):
 #     with Session(engine) as session:
 #         new_user = User(id=id_user, balanese=balanse_user)
